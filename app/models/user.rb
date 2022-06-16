@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: [:admin, :user]
+  enum role: %i[user admin].freeze
+
+  validates :email, presence: true, uniqueness: true
 
   has_many :quizzes
   has_many :answers
