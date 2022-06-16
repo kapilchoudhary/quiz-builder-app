@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="container-fluid pt-5">
+    <div class="row">
+      <div class="col-10">
+        <div class="page-title-box">
+          <h4 class="page-title">Quizes</h4>
+        </div>
+      </div>
+      <div class="col-2 pt-1">
+        <div class="page-title-box">
+          <%= link_to "Create Quiz", new_quiz_path, class: "btn btn-success btn-sm" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="col-2">#</th>
+        <th scope="col" class="col-7">Name</th>
+        <th scope="col" class="col-3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quizzes.each_with_index do | quiz, idx | %>
+        <tr>
+          <th scope="row"><%= (idx + 1) %></th>
+          <td><%= quiz.name %></td>
+          <td>
+            <%= link_to "Show", quiz_path(id: quiz), class: "btn btn-outline-dark btn-sm" %> |
+            <%= link_to "Edit", edit_quiz_path(id: quiz), class: "btn btn-outline-dark btn-sm" %> |
+            <%= link_to "Delete", quiz_path(id: quiz), method: :delete, class: "btn btn-outline-dark btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

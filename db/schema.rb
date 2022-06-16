@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_14_081229) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
+    t.string "question_type"
     t.bigint "quiz_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
